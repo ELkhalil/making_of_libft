@@ -14,18 +14,16 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	
-}
+	unsigned char *c_dst;
+	unsigned char *c_src;
 
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-    char csrc[100] = "ABCDEFGHIGKLMNOPK";
-    printf("|A| |B| |C| |D| |E| |F|\n");
-    //printf("%s\n\n", ft_memmove(csrc + 2, csrc, 5));
-    printf("%s\n\n", ft_memmove(csrc + 2, csrc, 5));
-    return 0;
+	c_dst = (unsigned char *)dst;
+	c_src = (unsigned char *)src;
+	if (!src && !dst)
+		return (NULL);
+	c_src += len;
+	c_dst += len;
+	while (len--)
+		*c_dst-- = *c_src--;
+	return (dst);
 }
-*/

@@ -11,28 +11,35 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 int	null_checker(const char *str, size_t len)
 {
 	if (len == 0)
 		return (0);
-	if (!*str)
+	if (!str)
 		return (0);
 	return (1);
 }
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i_haystack;
-	int	j_needle;
+	size_t	i;
+	size_t	j;
 
-	i_haystack = 0;
-	if (!*needle)
-		return ((char *)haystack);
+	i = 0;
 	if (null_checker(haystack, len))
 	{
-		
+		while (haystack[i] && i < len)
+		{
+			j = 0;
+			if (haystack[i] == needle[j])
+			{
+				while (haystack[i + j] == needle[j] && (i + j) < len)
+					j++;
+				if (!needle[j])
+					return ((char *)&haystack[i]);
+			}
+			i++;
+		}
 	}
 	return (NULL);
 }
