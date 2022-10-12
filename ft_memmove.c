@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:50:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/12 11:43:38 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/12 12:47:53 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char			*d;
-	const char		*s;
-
-	s = src;
-	d = dst;
-	s += len - 1;
-	d += len - 1;
-	while (len--)
-	{
-		*d = *s;
-			s--;
-			d--;
-	}
-	return (dst);
+	
 }
 
 /*
