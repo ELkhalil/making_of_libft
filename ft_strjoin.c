@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 08:29:44 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/13 09:04:57 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/13 09:40:51 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new_str[i] = '\0';
 	return (new_str);
 }
-
-/*
-int main(int ac, char **av)
-{
-	(void)ac;
-	printf("\n the new str is = |%s| \n",ft_strjoin(av[1],av[2]));	
-	return (0);
-}
-*/

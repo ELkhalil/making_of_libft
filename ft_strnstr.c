@@ -6,13 +6,13 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 02:25:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/12 12:09:15 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/13 10:06:55 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	null_checker(const char *str, size_t len)
+static int	null_checker(const char *str, size_t len)
 {
 	if (len == 0)
 		return (0);

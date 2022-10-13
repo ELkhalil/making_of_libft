@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 07:59:05 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/13 08:27:59 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:13:54 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t     i;
 		
 	i = 0;
+	if (start > ft_strlen(s))
+		return ("");
 	if (!s || !start)
 		return (NULL);
 	sub_str = malloc ((start + len) + 1);
@@ -29,14 +31,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	   i++;
 	   start++;
     }
-	return (sub_str);    
-}
-
-#include <stdio.h>
-
-int	main(int ac, char **av)
-{
-	(void)ac;
-	printf("the substring is = |%s|\n",ft_substr(av[1], atoi(av[2]), atoi(av[3])));
-	return (0);
+	return (sub_str);
 }
