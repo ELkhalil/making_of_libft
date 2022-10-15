@@ -6,11 +6,11 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:03:05 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/12 11:55:09 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/15 09:29:49 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	result;

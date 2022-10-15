@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:27:45 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/09 22:46:33 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/15 09:27:29 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t			i;
-	unsigned char 	*s_1;
+	unsigned char	*s_1;
 	unsigned char	*s_2;
 
 	i = 0;
