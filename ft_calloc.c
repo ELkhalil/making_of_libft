@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 07:40:24 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/13 07:47:53 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/15 10:13:54 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	allocated = malloc (count * size);
 	if (!allocated)
-		retunr (NULL);
+		return (NULL);
 	ft_bzero(allocated, size);
 	return (0);
 }
