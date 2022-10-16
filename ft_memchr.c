@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:24:10 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/12 12:10:50 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/16 11:58:32 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	if (n == 0)
-		return (NULL);
-	while (*(char *)s && n--)
+	size_t			i;
+	unsigned char	*str;
+
+	str = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		if (*(char *)s == (char)c)
-			return ((char *)s);
-		s++;
+		if (str[i] == (unsigned char)c)
+			return (&str[i]);
+		i++;
 	}
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:31:31 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/15 09:25:56 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:23:21 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		ft_putchar_fd(s[i], fd);
+	if (*s)
+	{
+		while (*s)
+			ft_putchar_fd(s++, fd);
+	}
 }

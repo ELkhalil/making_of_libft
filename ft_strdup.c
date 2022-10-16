@@ -6,13 +6,13 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 07:48:30 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/15 09:25:25 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/15 11:03:13 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char	*copied_str;
 	size_t	lentgh;

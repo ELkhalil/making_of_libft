@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 16:52:38 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/09 19:40:54 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:19:12 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	void		*recall;
+	unsigned char	*c_b;
+	unsigned char	c_c;
 
-	recall = b;
-	while (len--)
-		*(unsigned char *)b++ = (unsigned char)c;
-	return (recall);
+	c_b = (unsigned char *)b;
+	c_c = (unsigned char)c;
+	while (len > 0)
+	{
+		c_b[len] = c_c;
+		len--;
+	}
+	return (c_b);
 }

@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/13 22:02:44 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:41:08 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	wd_count(char const *s, char c)
 	return (wd_c);
 }
 
-int siwe(char c, char const  *str, int len)
+int copy_wd(char c, char const  *str, int len)
 {
 	int coun = 0;
 	while (str[len] != c)
@@ -64,10 +64,9 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (s[i] && s[i] != c)
 		{
-			splited_strs[j] = malloc(siwe(c, s,i));
+			splited_strs[j] = malloc(copy_wd(c, s,i));
 			while (s[i] != c)
 			{
-				/* code */
 				splited_strs[j][m] = s[i];
 				i ++;
 				m ++;

@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 23:02:02 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/11 02:26:32 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/16 13:36:18 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	length_dst;
-	size_t	length_src;
-	size_t	append_limit;
+	size_t	len_dst;
+	size_t	len_src;
+	size_t	c_limit;
 
-	length_dst = ft_strlen(dst);
-	length_src = ft_strlen(src);
-	if (dstsize <= length_dst)
-		return (length_src + dstsize);
-	append_limit = dstsize - length_dst - 1;
-	dst += length_dst;
-	while (*src && append_limit--)
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	if (dstsize <= len_dst)
+		return (len_src + dstsize);
+	c_limit = dstsize - len_dst - 1;
+	dst += len_dst;
+	while (*src && c_limit > 0)
+	{
 		*dst++ = *src++;
+		c_limit--;
+	}
 	*dst = '\0';
-	return (length_dst + length_src);
+	return (len_dst + len_src);
 }

@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 08:16:18 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/15 08:26:06 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/15 11:33:52 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_lstsize(t_list *lst)
 
 	tmp_head = lst;
 	lst_counter = 0;
-	while (tmp_head != NULL)
+	while (tmp_head)
 	{
 		lst_counter++;
 		tmp_head = tmp_head -> next;
