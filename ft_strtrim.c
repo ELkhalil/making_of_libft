@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:41:15 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 09:49:02 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 22:43:03 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	index = 0;
-	j = ft_strlen(s1) - 1;
+	j = ft_strlen(s1) + 1;
 	while (s1[i] && check_if_contains(set, s1[i]))
 		i++;
 	while (check_if_contains(set, s1[j]))
@@ -53,4 +53,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	trimmed_str[index] = '\0';
 	return (trimmed_str);
+}
+int main(int ac, char **av)
+{
+	(void)ac;
+	(void)av;
+	char s1[] = "  \t \t \n   \n\n\n\t";
+	printf("%s\n",ft_strtrim(s1," \n\t"));
+	return (0);
 }
