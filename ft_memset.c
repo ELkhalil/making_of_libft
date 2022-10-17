@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 08:34:18 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 08:34:21 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:16:43 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	while (i < len)
 	{
 		c_b[i] = c_c;
-		i--;
+		i++;
 	}
 	return (c_b);
 }

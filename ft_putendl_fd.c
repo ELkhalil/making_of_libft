@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:33:50 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/16 12:20:42 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:17:10 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (*s)
+	if (s)
 	{
 		ft_putstr_fd(s, fd);
 		ft_putchar_fd('\n', fd);

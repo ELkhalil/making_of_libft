@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 09:41:15 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/13 14:13:17 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:49:02 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	index = 0;
 	j = ft_strlen(s1) - 1;
-	while (check_if_contains(set, s1[i]))
+	while (s1[i] && check_if_contains(set, s1[i]))
 		i++;
 	while (check_if_contains(set, s1[j]))
 		j--;

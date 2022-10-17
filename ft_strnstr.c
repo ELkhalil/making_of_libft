@@ -6,20 +6,11 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 02:25:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/15 09:21:19 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:41:43 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	null_checker(const char *str, size_t len)
-{
-	if (len == 0)
-		return (0);
-	if (!str)
-		return (0);
-	return (1);
-}
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -27,7 +18,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
-	if (null_checker(haystack, len))
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	if (len > 0)
 	{
 		while (haystack[i] && i < len)
 		{
