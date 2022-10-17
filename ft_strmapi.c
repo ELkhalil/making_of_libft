@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 22:06:30 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 09:25:40 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:37:56 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*created_str;
-	int		i;
+	char			*created_str;
+	unsigned int	i;
 
 	i = 0;
 	if (!s || !f)
@@ -28,5 +28,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		created_str[i] = f(i, s[i]);
 		i++;
 	}
+	created_str[i] = '\0';
 	return (created_str);
 }

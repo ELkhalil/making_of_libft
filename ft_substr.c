@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 07:59:05 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 09:58:32 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 10:34:31 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	if (!s)
 		return (NULL);
-	if (start > ft_strlen(s))
+	if (start >= ft_strlen(s))
 		return ("");
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;

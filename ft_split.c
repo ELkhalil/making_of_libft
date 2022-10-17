@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 08:30:37 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:53:58 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	retu_count = wd_counter(s, c);
-	spl_strs = malloc(sizeof(char **) * retu_count);
+	retu_count = 0;
+	spl_strs = malloc(sizeof(char *) * retu_count + 1);
 	if (!spl_strs)
 		return (NULL);
-	spl_strs[retu_count] = NULL;
+	spl_strs[retu_count + 1] = NULL;
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
@@ -78,12 +79,25 @@ char	**ft_split(char const *s, char c)
 			if (!spl_strs[j])
 			{
 				memory_free(spl_strs);
-				return (NULL);	
+				return (NULL);
 			}
 			ft_strlcpy(spl_strs[j], s + i - wd_len, wd_len + 1);
-			wd_len = '\0';
+			wd_len = 0;
 			j++;
 		}
 	}
-	return (spl_strs);
+	spl_strs[j] = NULL;
+	return (spl_strs);                                                                                                                                                                                                                                                      
+}
+int main (void)
+{
+	char *str = "    kkfjdglklksjdff fghjs sjhfg d skjdf  ";
+	char **splited;
+	int	i;
+
+	i = 0;
+	splited = ft_split(str, ' ');
+	for (i = 0; i <= wd_counter(str,' '); i++)
+		printf("|%s|\n",splited[i]);
+	return (0);
 }
