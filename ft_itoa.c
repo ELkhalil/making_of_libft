@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:20:55 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/13 19:47:15 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 09:01:28 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	len_calculator(long n)
 	int	len;
 
 	len = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		len++;
@@ -42,6 +44,11 @@ char	*ft_itoa(int n)
 	if (!num_str)
 		return (NULL);
 	num_str[len--] = '\0';
+	if (num == 0)
+	{
+		num_str[0] = '0';
+		return (num_str);
+	}
 	if (num < 0)
 	{
 		num_str[0] = '-';

@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 10:29:10 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/15 10:37:18 by aelkhali         ###   ########.fr       */
+/*   Created: 2022/10/16 17:01:49 by aelkhali          #+#    #+#             */
+/*   Updated: 2022/10/16 17:02:58 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
     

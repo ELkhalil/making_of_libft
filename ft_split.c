@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/16 16:17:53 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 08:30:37 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,18 @@ static int	wd_counter(char const *str, char c)
 		}
 	}
 	return (num_wd);
+}
+
+static void	memory_free(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
 }
 
 char	**ft_split(char const *s, char c)
@@ -62,7 +74,12 @@ char	**ft_split(char const *s, char c)
 				wd_len++;
 				i++;
 			}
-			spl_strs[j] = malloc(wd_len  + 1);
+			spl_strs[j] = malloc(wd_len + 1);
+			if (!spl_strs[j])
+			{
+				memory_free(spl_strs);
+				return (NULL);	
+			}
 			ft_strlcpy(spl_strs[j], s + i - wd_len, wd_len + 1);
 			wd_len = '\0';
 			j++;

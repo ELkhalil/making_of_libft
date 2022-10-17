@@ -6,15 +6,15 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:03:05 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/16 11:44:06 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 08:54:23 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	result;
-	int	sign;
+	unsigned long long	result;
+	int					i;
+	int					sign;
 
 	i = 0;
 	result = 0;
@@ -31,6 +31,10 @@ int	ft_atoi(const char *str)
 	{
 		result = (result * 10) + (str[i] - '0');
 		i++;
+		if (result > 9223372036854775807 && sign == 1)
+			return (-1);
+		if (result > 9223372036854775807 && sign == -1)
+			return (0);
 	}
 	return (result * sign);
 }
