@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 08:16:18 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/15 11:33:52 by aelkhali         ###   ########.fr       */
+/*   Created: 2022/10/18 12:02:33 by aelkhali          #+#    #+#             */
+/*   Updated: 2022/10/18 13:45:02 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int		lst_counter;
-	t_list	*tmp_head;
+	int	len;
 
-	tmp_head = lst;
-	lst_counter = 0;
-	while (tmp_head)
+	len = 0;
+	while (lst)
 	{
-		lst_counter++;
-		tmp_head = tmp_head -> next;
+		len++;
+		lst = lst->next;
 	}
-	return (lst_counter);
+	return (len);
 }

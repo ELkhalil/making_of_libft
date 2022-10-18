@@ -6,20 +6,26 @@ ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_
 ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
 ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
+CSRCBONUS = $(CFILES) ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
 OBJS = $(CFILES:.c=.o)
+OBJBONUS = $(CSRCBONUS:.c=.o)
 RM = rm -rf
+AR = ar -rc
 
 all : $(NAME)
 	@echo archived successfully..
 
+bonus : $(OBJBONUS)
+	$(AR) $(NAME) $(OBJBONUS) 
+
 $(NAME) : $(OBJS)
-	@ar -rc $(NAME) $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
 
 .c.o :
 	@cc $(FLAGS) -c $^ -o $@
  
 clean :
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(OBJBONUS)
 
 fclean : clean
 	@$(RM) $(NAME)

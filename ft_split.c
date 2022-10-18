@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 22:48:31 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/17 22:57:44 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ char	**ft_split(char const *s, char c)
 			i++;
 		if (s[i] && s[i] != c)
 		{
-			while (s[i] && s[i] != c)
+			if (s[i] != c)
 			{
-				wd_len++;
-				i++;
+				i ++;
+				continue;
 			}
 			spl_strs[j] = malloc(wd_len + 1);
 			if (!spl_strs[j])
@@ -89,15 +89,15 @@ char	**ft_split(char const *s, char c)
 	spl_strs[j] = NULL;
 	return (spl_strs);                                                                                                                                                                                                                                                      
 }
-int main (void)
-{
-	char *str = "    kkfjdglklksjdff fghjs sjhfg d skjdf  ";
-	char **splited;
-	int	i;
+// int main (void)
+// {
+// 	char *str = "    kkfjdglklksjdff fghjs sjhfg d skjdf  ";
+// 	char **splited;
+// 	int	i;
 
-	i = 0;
-	splited = ft_split(str, ' ');
-	for (i = 0; i <= wd_counter(str,' '); i++)
-		printf("|%s|\n",splited[i]);
-	return (0);
-}
+// 	i = 0;
+// 	splited = ft_split(str, ' ');
+// 	for (i = 0; i <= wd_counter(str,' '); i++)
+// 		printf("|%s|\n",splited[i]);
+// 	return (0);
+// }
