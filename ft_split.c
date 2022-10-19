@@ -6,13 +6,26 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 22:57:44 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:22:01 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wd_counter(char const *str, char c)
+static void	memory_free(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		free(strs[i]);
+		i++;
+	}
+	free (strs);
+}
+
+static int	wd_lener(char const *str, char c)
 {
 	int	i;
 	int	num_wd;
@@ -33,18 +46,6 @@ static int	wd_counter(char const *str, char c)
 	return (num_wd);
 }
 
-static void	memory_free(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free(strs[i]);
-		i++;
-	}
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**spl_strs;
@@ -53,51 +54,36 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	j = 0;
 	wd_len = 0;
-	if (!s)
-		return (NULL);
-	retu_count = wd_counter(s, c);
-	retu_count = 0;
-	spl_strs = malloc(sizeof(char *) * retu_count + 1);
+	retu_count = wd_lener(s, c);
+	spl_strs = malloc(sizeof(char *) * (retu_count + 1));
 	if (!spl_strs)
 		return (NULL);
-	spl_strs[retu_count + 1] = NULL;
+	spl_strs[retu_count] = NULL;
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
 			i++;
 		if (s[i] && s[i] != c)
 		{
-			if (s[i] != c)
+			while (s[i] && s[i] != c)
 			{
-				i ++;
-				continue;
+				wd_len++;
+				i++;
 			}
-			spl_strs[j] = malloc(wd_len + 1);
+			spl_strs[j] = ft_substr(s, i - wd_len, wd_len);
 			if (!spl_strs[j])
 			{
 				memory_free(spl_strs);
 				return (NULL);
 			}
-			ft_strlcpy(spl_strs[j], s + i - wd_len, wd_len + 1);
 			wd_len = 0;
 			j++;
 		}
 	}
-	spl_strs[j] = NULL;
-	return (spl_strs);                                                                                                                                                                                                                                                      
+	return (spl_strs);
 }
-// int main (void)
-// {
-// 	char *str = "    kkfjdglklksjdff fghjs sjhfg d skjdf  ";
-// 	char **splited;
-// 	int	i;
-
-// 	i = 0;
-// 	splited = ft_split(str, ' ');
-// 	for (i = 0; i <= wd_counter(str,' '); i++)
-// 		printf("|%s|\n",splited[i]);
-// 	return (0);
-// }
