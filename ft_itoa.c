@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:20:55 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 09:01:28 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/19 12:05:54 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,7 @@ char	*ft_itoa(int n)
 		return (NULL);
 	num_str[len--] = '\0';
 	if (num == 0)
-	{
 		num_str[0] = '0';
-		return (num_str);
-	}
 	if (num < 0)
 	{
 		num_str[0] = '-';
@@ -56,9 +53,8 @@ char	*ft_itoa(int n)
 	}
 	while (num > 0)
 	{
-		num_str[len] = num % 10 + '0';
+		num_str[len--] = num % 10 + '0';
 		num /= 10;
-		len--;
 	}
 	return (num_str);
 }

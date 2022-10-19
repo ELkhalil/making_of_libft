@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:56:43 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 10:32:16 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/19 11:59:36 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	while (i < n)
 	{
 		dest[i] = source[i];
-		i++;	
+		i++;
 	}
 	return (dest);
 }
