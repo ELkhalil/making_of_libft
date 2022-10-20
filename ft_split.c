@@ -6,26 +6,27 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/19 23:22:01 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/20 09:30:53 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	memory_free(char **strs)
+static char	**memory_free(char **strs, int j)
 {
 	int	i;
 
 	i = 0;
-	while (strs[i])
+	while (i < j)
 	{
 		free(strs[i]);
 		i++;
 	}
 	free (strs);
+	return (NULL);
 }
 
-static int	wd_lener(char const *str, char c)
+static int	wd_counter(char const *str, char c)
 {
 	int	i;
 	int	num_wd;
@@ -46,24 +47,13 @@ static int	wd_lener(char const *str, char c)
 	return (num_wd);
 }
 
-char	**ft_split(char const *s, char c)
+static char	**fill_strs(char **strs, char const *s, char c, int wd_l)
 {
-	char	**spl_strs;
-	int		retu_count;
-	int		wd_len;
-	int		i;
-	int		j;
+	int	j;
+	int	i;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	j = 0;
-	wd_len = 0;
-	retu_count = wd_lener(s, c);
-	spl_strs = malloc(sizeof(char *) * (retu_count + 1));
-	if (!spl_strs)
-		return (NULL);
-	spl_strs[retu_count] = NULL;
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
@@ -72,18 +62,33 @@ char	**ft_split(char const *s, char c)
 		{
 			while (s[i] && s[i] != c)
 			{
-				wd_len++;
+				wd_l++;
 				i++;
 			}
-			spl_strs[j] = ft_substr(s, i - wd_len, wd_len);
-			if (!spl_strs[j])
-			{
-				memory_free(spl_strs);
-				return (NULL);
-			}
-			wd_len = 0;
+			strs[j] = ft_substr(s, (i - wd_l), wd_l);
+			if (!strs[j])
+				return (memory_free(strs, j));
+			wd_l = 0;
 			j++;
 		}
 	}
+	return (strs);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**spl_strs;
+	int		retu_count;
+	int		wd_len;
+
+	if (!s)
+		return (NULL);
+	wd_len = 0;
+	retu_count = wd_counter(s, c);
+	spl_strs = malloc(sizeof(char *) * (retu_count + 1));
+	if (!spl_strs)
+		return (NULL);
+	spl_strs[retu_count] = NULL;
+	fill_strs(spl_strs, s, c, wd_len);
 	return (spl_strs);
 }

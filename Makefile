@@ -13,20 +13,17 @@ RM = rm -rf
 AR = ar -rc
 
 all : $(NAME)
-	@echo archived successfully..
-
+	@echo libft.a created successfully...
 bonus : $(OBJBONUS)
-	$(AR) $(NAME) $(OBJBONUS) 
-
+	@$(AR) $(NAME) $(OBJBONUS)
+	@echo Compiling p1 and p2 with bonus...
 $(NAME) : $(OBJS)
 	@$(AR) $(NAME) $(OBJS)
-
+	@echo Compiling part1 and part2...
 .c.o :
 	@cc $(FLAGS) -c $^ -o $@
- 
 clean :
 	@$(RM) $(OBJS) $(OBJBONUS)
-
 fclean : clean
 	@$(RM) $(NAME)
 re : fclean all

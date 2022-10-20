@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 08:29:44 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/17 21:24:03 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/20 10:15:29 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new_str;
 	char	*recall;
-	size_t	len;
 
 	if (!s1 || !s2)
 		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	new_str = malloc (len + 1);
+	new_str = malloc ((ft_strlen(s1) + ft_strlen(s2)) + 1);
 	recall = new_str;
 	if (!new_str)
 		return (NULL);
