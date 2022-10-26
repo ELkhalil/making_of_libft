@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 22:50:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/24 09:08:28 by aelkhali         ###   ########.fr       */
+/*   Created: 2022/10/15 09:09:56 by aelkhali          #+#    #+#             */
+/*   Updated: 2022/10/26 22:01:39 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	unsigned char	*c_dst;
-	unsigned char	*c_src;
+	t_list	*tmp_head;
 
-	c_dst = (unsigned char *)dst;
-	c_src = (unsigned char *)src;
-	if (!src && !dst)
-		return (NULL);
-	if (c_src < c_dst)
+	if (lst && f)
 	{
-		while (len-- > 0)
-			c_dst[len] = c_src[len];
+		tmp_head = lst;
+		while (tmp_head != NULL)
+		{
+			f(tmp_head->content);
+			tmp_head = tmp_head->next;
+		}
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (dst);
 }

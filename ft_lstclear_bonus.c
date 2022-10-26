@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 22:50:06 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/24 09:08:28 by aelkhali         ###   ########.fr       */
+/*   Created: 2022/10/15 09:05:42 by aelkhali          #+#    #+#             */
+/*   Updated: 2022/10/26 22:44:43 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	unsigned char	*c_dst;
-	unsigned char	*c_src;
+	t_list	*tmp_lst;
 
-	c_dst = (unsigned char *)dst;
-	c_src = (unsigned char *)src;
-	if (!src && !dst)
-		return (NULL);
-	if (c_src < c_dst)
+	if (lst && del)
 	{
-		while (len-- > 0)
-			c_dst[len] = c_src[len];
+		while (*lst)
+		{
+			tmp_lst = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = tmp_lst;
+		}	
 	}
-	else
-		ft_memcpy(dst, src, len);
-	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 09:09:56 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/15 09:13:30 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:57:28 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*tmp_header;
+	t_list	*tmp_head;
 
-	tmp_header = lst;
-	while (tmp_header != NULL)
+	tmp_head = lst;
+	while (tmp_head != NULL)
 	{
-		f(tmp_header->content);
-		tmp_header = tmp_header->next;
+		f(tmp_head->content);
+		tmp_head = tmp_head->next;
 	}
 }

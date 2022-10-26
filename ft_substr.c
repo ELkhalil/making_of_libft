@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 07:59:05 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/19 10:26:58 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/26 22:07:41 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub_str = malloc (len + 1);
 	if (!sub_str)
 		return (NULL);
-	while (s[start] && i < len)
-	{
-		sub_str[i] = s[start];
-		i++;
-		start++;
-	}
-	sub_str[i] = '\0';
+	ft_strlcpy(sub_str, s + start, len + 1);
 	return (sub_str);
 }
