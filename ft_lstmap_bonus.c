@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 17:01:49 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/26 22:02:05 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/27 09:15:49 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,22 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*node;
-	t_list	*new_lst;
+	t_list	*new_node;
+	t_list	*head;
 
 	if (!lst || !f)
 		return (NULL);
-	new_lst = NULL;
+	head = NULL;
 	while (lst)
 	{
-		node = ft_lstnew(f(lst->content));
-		if (!node)
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
 		{
-			if (!del)
-				return (NULL);
-			ft_lstclear(&new_lst, del);
+			ft_lstclear(&head, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&new_lst, node);
+		ft_lstadd_back(&head, new_node);
 		lst = lst->next;
 	}
-	return (new_lst);
+	return (head);
 }

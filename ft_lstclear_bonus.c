@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 09:05:42 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/26 22:44:43 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/27 09:16:05 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*tmp_lst;
 
-	if (lst && del)
+	if (lst)
 	{
 		while (*lst)
 		{

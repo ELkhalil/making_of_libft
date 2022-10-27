@@ -6,7 +6,7 @@
 /*   By: aelkhali <aelkhali@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 14:19:09 by aelkhali          #+#    #+#             */
-/*   Updated: 2022/10/20 09:30:53 by aelkhali         ###   ########.fr       */
+/*   Updated: 2022/10/27 08:57:15 by aelkhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ char	**ft_split(char const *s, char c)
 	if (!spl_strs)
 		return (NULL);
 	spl_strs[retu_count] = NULL;
-	fill_strs(spl_strs, s, c, wd_len);
+	if (!fill_strs(spl_strs, s, c, wd_len))
+		return (NULL);
 	return (spl_strs);
 }
